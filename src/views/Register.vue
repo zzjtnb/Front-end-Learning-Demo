@@ -12,8 +12,8 @@
           <el-form-item label="郵箱" prop="email">
             <el-input v-model="registerUser.email" placeholder="請輸入郵箱" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="密碼" prop="pass">
-            <el-input type="password" v-model="registerUser.pass" placeholder="請輸入密碼" autocomplete="off"></el-input>
+          <el-form-item label="密碼" prop="password">
+            <el-input type="password" v-model="registerUser.password" placeholder="請輸入密碼" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="確認密碼" prop="checkPass">
             <el-input type="password" v-model="registerUser.checkPass" placeholder="請確認密碼" autocomplete="off"></el-input>
@@ -39,7 +39,7 @@
 export default {
   data () {
     var checkPass = (rule, value, callback) => {
-      if (value !== this.registerUser.pass) {
+      if (value !== this.registerUser.password) {
         callback(new Error("两次输入密码不一致!"));
       } else {
         callback();
@@ -49,7 +49,7 @@ export default {
       registerUser: {
         name: "",
         email: "",
-        pass: "",
+        password: "",
         checkPass: "",
         identity: ""
       },
@@ -66,9 +66,9 @@ export default {
             trigger: "blur"
           }
         ],
-        pass: [
+        password: [
           { required: true, message: "密码不能为空", trigger: "blur" },
-          { min: 6, max: 30, message: "长度在 6 到 30 个字符", trigger: "blur" }
+          { min: 3, max: 30, message: "长度在 3 到 30 个字符", trigger: "blur" }
         ],
         checkPass: [
           { required: true, message: "请确认密码", trigger: "blur" },
@@ -81,7 +81,15 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
+          this.$axios.post("/api/users/register", this.registerUser)
+            .then(res => {
+              // 注册成功
+              this.$message({
+                message: "注册成功！",
+                type: "success"
+              });
+              this.$router.push("/login");
+            });
         } else {
           console.log("error submit!!");
           return false;
