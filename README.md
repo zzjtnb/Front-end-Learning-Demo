@@ -71,3 +71,17 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 >  "dev": "concurrently \"npm run serve\" \"npm run nodeServer\"" 
 > },
 > ```
+
+### 项目用到的依赖
+
+#### element-ui
+
+`npm i element-ui -S`
+
+##### 在 main.js 中写入以下内容：
+
+> ```
+> import ElementUI from 'element-ui'; 
+> import 'element-ui/lib/theme-chalk/index.css'; 
+> Vue.use(ElementUI);
+> ```
