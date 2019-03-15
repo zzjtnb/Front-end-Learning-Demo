@@ -1,16 +1,17 @@
 <!--  -->
 <template>
-  <div class="notfond">
-    <img src="../assets/images/404.gif" alt="" />
+  <div class="nofind">
+    <!-- <img src="../assets/images/404.gif" alt="" /> -->
+    <iframe src="https://404.netlify.com/" style="height: 100%;width: 100%;"></iframe>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {};
   },
-  mounted() {},
+  mounted () { },
   methods: {},
   components: {}
 };

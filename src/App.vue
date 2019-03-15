@@ -12,7 +12,7 @@ export default {
     if (localStorage.token) {
       const decode = jwt_decode(localStorage.token)
       // token存储到vuex中(判断是否授权),传递给actions,mutations接收
-      this.$store.dispatch("setAuthenticated", !this.isEmpty(decode))
+      this.$store.dispatch("setIsAutnenticated", !this.isEmpty(decode))
       this.$store.dispatch("setUser", decode)
     }
   },
