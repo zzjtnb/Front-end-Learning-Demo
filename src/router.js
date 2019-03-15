@@ -10,16 +10,9 @@ export default new Router({
     // 配置404頁面
     { path: "*", name: "/404", component: NOTFOUND },
     // 重定向
-    {
-      path: "/",
-      redirect: "index"
-    },
-
-    {
-      path: "/index",
-      name: "index",
-      component: Index
-    },
+    { path: "/", redirect: "index" },
+    { path: "/index", name: "index", component: Index },
+    // 路由导航
     {
       path: "/register",
       name: "register",
@@ -28,6 +21,8 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/Register.vue")
-    }
+    },
+    { path: "/login", name: "login", component: () => import("./views/Login.vue") },
+
   ]
 });

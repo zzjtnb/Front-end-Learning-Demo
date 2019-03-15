@@ -4,32 +4,36 @@
     <section class="form_container">
       <div class="manage_tip">
         <span class="title"> 争逐集团在线管理系统 </span>
-        <!-- 注册表单组合 -->
-        <el-form :model="registerUser" :rules="rules" ref="registerForm" label-width="80px" class="registerForm">
-          <el-form-item label="用戶名" prop="name">
-            <el-input v-model="registerUser.name" placeholder="请输入用户名" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="邮箱" prop="email">
-            <el-input v-model="registerUser.email" placeholder="请输入邮箱" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="registerUser.password" placeholder="请输入密码" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="确认密码" prop="checkPass">
-            <el-input type="password" v-model="registerUser.checkPass" placeholder="请确认密码" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="身份" prop="age">
-            <el-select v-model="registerUser.identity" placeholder="请选择身份">
-              <el-option label="管理员" value="manager"></el-option>
-              <el-option label="员工" value="employee"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="submitForm('registerForm')">提交</el-button>
-            <el-button @click="resetForm('registerForm')">重置</el-button>
-          </el-form-item>
-        </el-form>
       </div>
+      <!-- 注册表单组合 -->
+      <el-form :model="registerUser" :rules="rules" ref="registerForm" label-width="80px" class="registerForm">
+        <el-form-item label="用戶名" prop="name">
+          <el-input v-model="registerUser.name" placeholder="请输入用户名" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="邮箱" prop="email">
+          <el-input v-model="registerUser.email" placeholder="请输入邮箱" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="password">
+          <el-input type="password" v-model="registerUser.password" placeholder="请输入密码" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" prop="checkPass">
+          <el-input type="password" v-model="registerUser.checkPass" placeholder="请确认密码" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="身份" prop="age">
+          <el-select v-model="registerUser.identity" placeholder="请选择身份">
+            <el-option label="管理员" value="manager"></el-option>
+            <el-option label="员工" value="employee"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('registerForm')">注册</el-button>
+          <el-button @click="resetForm('registerForm')">重置</el-button>
+        </el-form-item>
+        <div class="tiparea">
+          <p>还没有账号 ?现在<router-link to="/login">登录</router-link>
+          </p>
+        </div>
+      </el-form>
     </section>
   </div>
 </template>
@@ -80,7 +84,7 @@ export default {
   methods: {
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
-        
+
         if (valid) {
           this.$axios.post("/api/users/register", this.registerUser)
             .then(res => {
@@ -134,5 +138,13 @@ export default {
   padding: 20px 40px 20px 20px;
   border-radius: 5px;
   box-shadow: 0px 5px 10px #cccc;
+}
+.tiparea {
+  text-align: right;
+  font-size: 12px;
+  color: #333;
+}
+.tiparea p a {
+  color: #409eff;
 }
 </style>
