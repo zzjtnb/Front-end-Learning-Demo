@@ -1,27 +1,27 @@
-<!-- 注冊頁 -->
+<!-- 注册页 -->
 <template>
   <div class="register">
     <section class="form_container">
       <div class="manage_tip">
-        <span class="title"> 爭逐集團在綫管理系統 </span>
-        <!-- 注冊表單組合 -->
+        <span class="title"> 争逐集团在线管理系统 </span>
+        <!-- 注册表单组合 -->
         <el-form :model="registerUser" :rules="rules" ref="registerForm" label-width="80px" class="registerForm">
           <el-form-item label="用戶名" prop="name">
-            <el-input v-model="registerUser.name" placeholder="請輸入用戶名" autocomplete="off"></el-input>
+            <el-input v-model="registerUser.name" placeholder="请输入用户名" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="郵箱" prop="email">
-            <el-input v-model="registerUser.email" placeholder="請輸入郵箱" autocomplete="off"></el-input>
+          <el-form-item label="邮箱" prop="email">
+            <el-input v-model="registerUser.email" placeholder="请输入邮箱" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="密碼" prop="password">
-            <el-input type="password" v-model="registerUser.password" placeholder="請輸入密碼" autocomplete="off"></el-input>
+          <el-form-item label="密码" prop="password">
+            <el-input type="password" v-model="registerUser.password" placeholder="请输入密码" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="確認密碼" prop="checkPass">
-            <el-input type="password" v-model="registerUser.checkPass" placeholder="請確認密碼" autocomplete="off"></el-input>
+          <el-form-item label="确认密码" prop="checkPass">
+            <el-input type="password" v-model="registerUser.checkPass" placeholder="请确认密码" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="角色" prop="age">
-            <el-select v-model="registerUser.identity" placeholder="請選擇角色">
-              <el-option label="管理員" value="manager"></el-option>
-              <el-option label="員工" value="employee"></el-option>
+          <el-form-item label="身份" prop="age">
+            <el-select v-model="registerUser.identity" placeholder="请选择身份">
+              <el-option label="管理员" value="manager"></el-option>
+              <el-option label="员工" value="employee"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item>
@@ -50,7 +50,7 @@ export default {
         name: "",
         email: "",
         password: "",
-        checkPass: "",
+        // checkPass: "",
         identity: ""
       },
       rules: {
@@ -80,6 +80,7 @@ export default {
   methods: {
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
+        
         if (valid) {
           this.$axios.post("/api/users/register", this.registerUser)
             .then(res => {
