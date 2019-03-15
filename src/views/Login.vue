@@ -28,6 +28,7 @@
 
 <script>
 "login";
+import jwt_decode from 'jwt-decode'
 export default {
   data () {
     return {
@@ -62,8 +63,17 @@ export default {
               type: "success"
             });
             // 拿到token
-            console.log(res.data.token)
+            // console.log(res.data.token)
+            const { token } = res.data
+            //存储token到localStorage
+            localStorage.setItem("token", token)
             this.$router.push("/index");
+            //解析token
+            const decode = jwt_decode(token)
+            // console.log(decode)
+            // token存储到vuex中(判断是否授权),传递给actions,mutations接收
+            this.$store.dispatch("setAuthenticated", !this.isEmpty(decode))
+            this.$store.dispatch("setUser", decode)
           });
         } else {
           this.$message({
@@ -77,6 +87,15 @@ export default {
     },
     resetForm (formName) {
       this.$refs[formName].resetFields();
+    },
+    //判断是否为空的方法,如果为空会返回一个true(真)值,反之返回一个false(假)值
+    isEmpty (value) {
+      return (
+        value === undefined ||
+        value === null ||
+        (typeof value === "object" && Object.keys(value).length === 0) ||
+        (typeof value === "string" && value.trim().length === 0)
+      );
     }
   }
 };

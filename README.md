@@ -24,7 +24,7 @@
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## VueCli3.0创建项目
+## 一、VueCli3.0创建项目
 
 ### 方式一、 启用图形化界面创建
 
@@ -39,6 +39,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### 运行
 
 `npm run serve`
+
+### 二、项目用到的依赖
 
 #### concurrently 将多个终端启动的项目绑定到一块, 同时运行多个命令
 
@@ -67,12 +69,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 >  后面的prefix nodeServer是是里面的项目的文件夹名称
 >  */
 >  "nodeServer": "npm test --prefix nodeServer", 
->  //下面是把前后端项目的启动方式绑定到一块
->  "dev": "concurrently \"npm run serve\" \"npm run nodeServer\"" 
+>  /*下面是把前后端项目的启动方式绑定到一块
+>  如果前端包含后端,后端的运行命令放在concurrently后面的第一个
+>  如果后端包含前端,后端的运行命令前端的concurrently后面的第一个
+> */
+>      "dev": "concurrently \"npm run nodeServer\" \"npm run serve\""
 > },
 > ```
-
-### 项目用到的依赖
 
 #### element-ui
 
@@ -85,3 +88,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 > import 'element-ui/lib/theme-chalk/index.css'; 
 > Vue.use(ElementUI);
 > ```
+
+### jwt-decode(解析token)
+
+`npm i jwt-decode --save`
