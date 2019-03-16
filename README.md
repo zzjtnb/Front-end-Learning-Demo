@@ -92,3 +92,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### jwt-decode(解析token)
 
 `npm i jwt-decode --save`
+
+### 本地预览
+
+`npm install -g serve`
+
+> ```
+> # -s 参数的意思是将其架设在 Single-Page Application 模式下
+> #  这个模式会处理即将提到的路由问题
+> ```
+
+`serve -s dist`

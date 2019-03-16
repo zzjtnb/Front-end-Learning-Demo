@@ -1,6 +1,6 @@
 {
-  "name": "VueCli3_FullStackProject",
-  "short_name": "VueCli3_FullStackProject",
+  "name": "争逐",
+  "short_name": "争逐",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#95A5A6",
   "theme_color": "#4DBA87"
 }

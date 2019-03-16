@@ -5,7 +5,7 @@ const debug = process.env.NODE_ENV !== 'production'
 module.exports = {
   baseUrl: '/', // 根域上下文目录(默认'/'，部署应用包时的基本 URL)
   outputDir: 'dist', // 构建输出目录
-  assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)(相对于outputDir的静态资源(js、css、img、fonts)目录)
+  assetsDir: '', // 静态资源目录 (js, css, img, fonts)(相对于outputDir的静态资源(js、css、img、fonts)目录)
   lintOnSave: false, // 是否开启eslint保存检测，有效值：ture | false | 'error'
   runtimeCompiler: true, // 运行时版本是否需要编译(是否使用包含运行时编译器的Vue核心的构建)
   transpileDependencies: [], // 默认babel-loader忽略node_modules，这里可增加例外的依赖包名
@@ -36,12 +36,12 @@ module.exports = {
   pluginOptions: { // 第三方插件配置
   },
   // 配置pwa
-  pwa: { // 单页插件相关配置 https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
+  pwa: {
     name: '争逐',
     appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'blue',
+    appleMobileWebAppStatusBarStyle: '#039BE5',
     themeColor: '#50E3C2',
-    msTileColor: '#4A90E2'
+    msTileColor: '#5D6D7E'
   },
   // 处理跨域问题
   devServer: {
@@ -77,7 +77,9 @@ module.exports = {
         // 配置less（其他样式解析用法一致）
         javascriptEnabled: true // 设置为true
       }
-    }
+    },
+    //抽取 CSS
+    extract: false
   },
 
 }

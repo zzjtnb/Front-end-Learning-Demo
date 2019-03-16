@@ -1,5 +1,5 @@
 {
-  "name": "vue-cli3_full-stack-project",
+  "name": "zzjt",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,8 @@
     "nodeServer": "npm test --prefix nodeServer",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "dev": "concurrently \"npm run nodeServer\" \"npm run serve\""
+    "dev": "concurrently \"npm run nodeServer\" \"npm run serve\"",
+    "building": "concurrently \"npm run nodeServer\" \"npm run build\""
   },
   "dependencies": {
     "axios": "^0.18.0",
