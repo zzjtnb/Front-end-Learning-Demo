@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CSS3选择器</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+</head>
+
+<body>
+  <div>
+    <h1>CSS3选择器</h1>
+    <p>1.属性(html属性)选择器</p>
+    <ul>
+      <li>
+        <p>语法:html标签[html标签属性]{css样式}</p>
+        <p>说明:用于选取带有指定属性的元素.</p>
+        <p>举例:
+          <pre>
+&lt;style&gt;
+img[alt] {
+color: red
+}
+&lt;/style&gt;
+&lt;img src=&quot;&quot; alt=&quot;test1&quot;&gt;
+&lt;img src=&quot;&quot; alt=&quot;test2&quot;&gt;
+          </pre>
+        </p>
+      </li>
+      <li>
+        <p>语法:html标签[html标签属性="值"]{css样式}</p>
+        <p>说明:用于选取带有指定属性和值的元素.</p>
+        <strong>举例:</strong>
+        <pre>
+&lt;style&gt;
+input[type=&quot;submit&quot;] {
+width: 500px;
+height: 500px
+}
+&lt;/style&gt;
+
+&lt;div&gt;
+&lt;input type=&quot;text&quot; name=&quot;&quot; value=&quot;&quot;&gt;
+&lt;input type=&quot;submit&quot; name=&quot;&quot; value=&quot;&quot;&gt;
+&lt;/div&gt;
+        </pre>
+      </li>
+      <li>
+        <p>语法:html标签[html标签属性]{css样式}</p>
+        <p>说明:用于选取带有指定属性的元素.</p>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

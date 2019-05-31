@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../css/box.css" rel="stylesheet">
+</head>
+
+<body>
+  <h2>CSS 盒子模型(Box Model)</h2>
+  <p>所有HTML元素可以看作盒子，在CSS中，"box model"这一术语是用来设计和布局时使用。</p>
+  <p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。</p>
+  <p>盒模型允许我们在其它元素和周围元素边框之间的空间放置元素。</p>
+  <p>当子元素设为浮动的时候无法撑开父元素的大小</p>
+  <p>不同部分的说明：</p>
+  <ul>
+    <li><b>Margin(外边距)</b> - 清除边框外的区域，外边距是透明的。</li>
+    <li><b>Border(边框)</b> - 围绕在内边距和内容外的边框。</li>
+    <li><b>Padding(内边距)</b> - 清除内容周围的区域，内边距是透明的。</li>
+    <li><b>Content(内容)</b> - 盒子的内容，显示文本和图像。</li>
+  </ul>
+  <div id="box">
+    <div class="item a"></div>
+    <div class="item b"></div>
+    <div class="item c"></div>
+  </div>
+  <div id="box1">
+    <div class="item1">
+      <img src="./images/1.jpg" alt=""><br />
+      测试内容
+    </div>
+    <div class="item1">
+      <img src="./images/3.jpg" alt="">
+    </div>
+    <div class="item1">
+      <img src="./images/2.jpg" alt="">
+    </div>
+  </div>
+</body>
+
+</html>

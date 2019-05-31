@@ -1,0 +1,50 @@
+*{
+  margin: 0;/*将所有元素的边距都设置为0,因为浏览器中一些元素天生默认自带边距*/
+}
+.item{
+  width: 210px;
+  height:200px;
+  float: left;
+  margin: 20px
+}
+
+#box{
+   overflow: auto;
+   /* 自适应用px */
+   width: 750px;
+   /* width: 50%; *//*响应式用百分比像素单位和vh*/
+   margin: auto;/*让父元素自动设置边距,左右边距相等,即可达到居中效果.水平方向有效*/
+}
+.a{
+background: url('../images/2.jpg') no-repeat ;
+background-size: cover;
+}
+.b{
+background: url('../images/1.jpg');
+background-size: cover;
+}
+.c{
+background: url('../images/3.jpg');
+background-size: cover;
+}
+
+.item1{
+  width: 100px;
+  height:100px;
+  float: left;
+  margin: 20px;
+  border: solid 5px red;
+  padding: 30px
+}
+#box1{
+   overflow: auto;
+   /* 自适应用px */
+   width: 690px;
+   /* width: 50%; *//*响应式用百分比像素单位和vh*/
+   margin: auto;/*让父元素自动设置边距,左右边距相等,即可达到居中效果.水平方向有效*/
+}
+.item1 img{
+  width: 80%;
+  height: 80%;
+  margin: 10%
+}
