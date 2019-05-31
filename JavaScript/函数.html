@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // let arr = ["red", "blue", "green"];
+    // console.log(arr.length);
+    // arr.length = 2;
+    // console.log(arr);
+    // function factorialize(num) {
+    //   if (num > 0) {
+    //     return (num * factorialize(num - 1));
+    //   } else
+    //     return (1);
+    // }
+    // console.log(factorialize(5))
+    // window.onload = function () { //写在这里的代码,在页面加载完成以后执行
+    //   let onBtn = document.getElementById("cleatText");
+    //   let changeBtn = document.getElementById("changeText");
+    //   let onText = document.getElementById("text");
+    //   // 给按钮添加事件驱动函数
+    //   onBtn.onclick = function () {
+    //     //要将文本中的内容清空
+    //     onText.value = ""
+    //     // onText.value得到的值是字符串
+    //   }
+    //   changeBtn.onclick = function () {
+    //     //输出文本中的内容
+    //     alert("我是修改前的内容--" + onText.value)
+    //     //修改文本中默认的内容
+    //     onText.value = "我是修改后的内容"
+    //   }
+    // }
+    let date1 = new Date("2014-05-28");
+    let date2 = new Date("2015/05/28");
+    let date3 = new Date(2006, 0, 12, 22, 19, 35);
+    let date4 = new Date(1000);
+    console.log("date1=" + date1);
+    console.log("date2=" + date2);
+    console.log("date3=" + date3);
+    console.log("date4=" + date4);
+
+    console.log(location.hash);
+    console.log(location.host);
+    console.log(location.hostname);
+    console.log(location.href);
+    console.log(location.pathname);
+    console.log(location.port);
+  </script>
+</head>
+
+<body>
+  <input type="button" value="按钮" id="btn">
+  <input type="text" value="默认的文字" id="text">
+  <input type="button" value="清空默认的文字" id="cleatText">
+  <input type="button" value="修改默认的文字" id="changeText">
+</body>
+
+</html>

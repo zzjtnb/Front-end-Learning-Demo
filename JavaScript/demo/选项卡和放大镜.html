@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <title>选项卡和放大镜.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .current {
+      border: 4px solid #00BCD4;
+    }
+
+    #box {
+      position: absolute;
+      right: 0;
+      width: 50%
+    }
+
+    #middle-box {
+      width: 35rem;
+      height: 15rem;
+      position: relative;
+    }
+
+    #middle-box img {
+      width: 100%;
+      height: 100%;
+    }
+
+    #small-box {
+      width: 35rem;
+      position: relative;
+      top: 50px;
+    }
+
+    #small-box img {
+      width: 5rem;
+      height: 3rem;
+    }
+
+    #large-box {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+      position: absolute;
+      left: 300px;
+      top: 10px;
+    }
+
+    #large-img {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+
+    #shadow {
+      width: 80px;
+      height: 80px;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+      position: absolute;
+      background: yellow;
+      display: none;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="large-box">
+      <img src="../images/1.jpg" alt="" srcset="" id="large-img">
+    </div>
+  </div>
+  <div id="middle-box">
+    <img src="../images/1.jpg" id="middle-img">
+    <div id="shadow"></div>
+  </div>
+  <div id="small-box">
+    <img src="../images/1.jpg" alt="" class="current">
+    <img src="../images/2.jpg" alt="" class="">
+    <img src="../images/3.jpg" alt="" class="">
+    <img src="../images/4.jpg" alt="" class="">
+    <img src="../images/5.jpg" alt="" class="">
+  </div>
+
+  <script src="../JavaScript/fangdajing.js"></script>
+
+</body>
+
+</html>
