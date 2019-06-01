@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>放大镜练习</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+
+    #img1 {
+      width: 200px;
+      height: 200px;
+    }
+
+    #oSpan {
+      width: 80px;
+      height: 80px;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+      position: absolute;
+      background: yellow;
+      display: none;
+    }
+
+    #mark {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      left: 0px;
+      top: 0px;
+    }
+
+    #big {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+      position: absolute;
+      left: 300px;
+      top: 10px;
+      display: none;
+    }
+
+    #bimg {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <img id="img1" src="../images/1.jpg" />
+    <span id="oSpan"></span>
+    <div id="mark"></div>
+  </div>
+  <div id="big"><img id="bimg" src="../images/1.jpg" /></div>
+  <script>
+    var oDiv = document.getElementById('box');
+    var oSpan = oDiv.getElementsByTagName('span')[0];
+    var oBig = document.getElementById('big');
+    var oBimg = document.getElementById('bimg');
+    oDiv.onmouseover = function (ev) {
+
+      var ev = ev || event;
+      var L = ev.clientX - oDiv.offsetLeft;
+      var T = ev.clientY - oDiv.offsetTop;
+      oSpan.style.display = 'block';
+      oSpan.style.left = L - oSpan.offsetWidth + 'px'; //计算鼠标移入时，放大镜的位置
+      oSpan.style.top = T - oSpan.offsetHeight + 'px';
+      oBig.style.display = 'block';
+      document.onmousemove = function (ev) {
+        var ev = ev || event;
+        var oW = oDiv.offsetWidth - oSpan.offsetWidth;
+        var oH = oDiv.offsetHeight - oSpan.offsetHeight;
+        var b = oBimg.offsetWidth / oDiv.offsetWidth;
+        L = ev.clientX - oSpan.offsetWidth / 2;
+        T = ev.clientY - oSpan.offsetHeight / 2;
+        if (L < 0) { //下面的是限制放大镜的移动范围
+          L = 0;
+        }
+        if (L > oW) {
+          L = oW + 'px';
+        }
+        if (T < 0) {
+          T = 0;
+        }
+        if (T > oH) {
+          T = oH + 'px';
+        }
+        oSpan.style.left = L + 'px';
+        oSpan.style.top = T + 'px';
+        oBimg.style.left = -L * b + 'px';
+        oBimg.style.top = -T * b + 'px';
+
+      }
+
+    }
+    oDiv.onmouseout = function () {
+      oSpan.style.display = 'none';
+      oBig.style.display = 'none';
+      document.onmousemove = null;
+
+    }
+  </script>
+</body>
+
+</html>
