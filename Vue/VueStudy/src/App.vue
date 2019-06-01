@@ -2,7 +2,7 @@
   <div id="app">
     <!-- 所有的组件都要被一个根节点（div）包围起来 -->
     <!--  <img src="./assets/logo.png"> -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
